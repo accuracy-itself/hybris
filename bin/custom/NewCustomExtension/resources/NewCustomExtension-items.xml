@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
+-->
+<!--
+	ATTENTION: This is just an example file. You have to edit it according to your needs.
+-->
+
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:noNamespaceSchemaLocation="items.xsd">
+	
+		
+	<collectiontypes>
+		    <collectiontype code="NameCollection" elementtype="java.lang.String" autocreate="true" generate="false" type="list"/>
+
+	</collectiontypes>
+
+	<enumtypes>
+		<enumtype code="GlassState" autocreate="true" generate="true">
+			<description>Glass State</description>
+			<value code="HALF_FULL"/>
+			<value code="HALF_EMPTY"/>
+		</enumtype>
+		
+		<enumtype code="TableSize" autocreate="true" generate="true" dynamic="true">
+			<description>Table Size</description>
+			<value code="BIG_TABLE"/>
+		</enumtype>
+	</enumtypes>
+
+	<maptypes>
+		<maptype code="LetterCountMap"
+			argumenttype="java.lang.String"
+			returntype="java.lang.Integer"
+			autocreate="true"
+			generate="false"/>
+	</maptypes>
+
+	<relations>
+		<relation code="Purchaser2Clothes" generate="true" localized="false" autocreate="true">
+			<sourceElement type="Purchaser" cardinality="one" qualifier="purchaser">
+                    		<modifiers read="true" write="true" search="true" optional="false"/>
+                	</sourceElement>
+                	
+                	<targetElement type="Clothes" cardinality="many" qualifier="clothesitems" ordered="true">
+                    		<modifiers read="true" write="true" search="true" optional="true" partof="true"/>
+                	</targetElement>
+            	</relation>
+
+		<relation code="Book2Publisher" generate="true" localized="false" autocreate="true">
+			<deployment table="Book2Publisher" typecode="23401"/>
+			<sourceElement type="Book" cardinality="many" qualifier="books">
+                    		<modifiers read="true" write="true" search="true" optional="false"/>
+                	</sourceElement>
+                	
+                	<targetElement type="Publisher" cardinality="many" qualifier="publishers" ordered="true">
+                    		<modifiers read="true" write="true" search="true" optional="true" partof="true"/>
+                	</targetElement>
+            	</relation>
+	</relations>
+	
+	
+	
+	<itemtypes>
+		<itemtype generate="true"
+		   code="Purchaser"
+		   jaloclass="org.training.jalo.Purchaser"
+		   autocreate="true">
+		   	<deployment table="Purchaser" typecode="23402"/>
+			<attributes>
+				<attribute qualifier="name" type="java.lang.String">
+					<description>Purchaser name</description>
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute autocreate="true" qualifier="purchaserinfo" type="PurchaserInfo">
+            				<modifiers read="true" write="true" partof="true"/>
+            				<persistence type="property"/>
+       				</attribute>
+			</attributes>
+		</itemtype>
+
+		<itemtype generate="true"
+		   code="PurchaserInfo"
+		   jaloclass="org.training.jalo.PurchaserInfo"
+		   autocreate="true">
+			<deployment table="PurchaserInfo" typecode="23403"/>
+			<attributes>
+				<attribute qualifier="name" type="java.lang.String">
+					<description>Purchaser name</description>
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+
+				<attribute qualifier="phoneNumber" type="java.lang.Integer">
+					<description>Purchaser phone number</description>
+					<modifiers read="true" write="true"/>
+               				<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		
+		<itemtype generate="true"
+		   code="Clothes"
+		   jaloclass="org.training.jalo.Clothes"
+		   autocreate="true">
+			<deployment table="Clothes" typecode="23404"/>
+			<attributes>
+				<attribute qualifier="name" type="java.lang.String">
+					<description>Clothes name</description>
+					<modifiers read="true" write="true" optional="true"/>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		
+		<itemtype generate="true"
+		   code="Book"
+		   jaloclass="org.training.jalo.Book"
+		   autocreate="true">
+			<deployment table="Book" typecode="23405"/>
+			<attributes>
+				<attribute qualifier="code" type="java.lang.Integer">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute qualifier="name" type="java.lang.String">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute qualifier="authour" type="java.lang.String">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		
+		<itemtype generate="true"
+		   code="Publisher"
+		   jaloclass="org.training.jalo.Publisher"
+		   autocreate="true">
+			<deployment table="Publisher" typecode="23406"/>
+			<attributes>
+				<attribute qualifier="code" type="java.lang.Integer">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute qualifier="name" type="java.lang.String">
+					<description>Phone model</description>
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+	
+		<itemtype generate="true"
+		   code="Pizza"
+		   jaloclass="org.training.jalo.Pizza"
+		   autocreate="true">
+			<deployment table="Pizza" typecode="23407"/>
+			<attributes>
+				<attribute qualifier="name" type="java.lang.String">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+	
+		<itemtype generate="true"
+		   code="BigItem"
+		   jaloclass="org.training.jalo.BigItem"
+		   autocreate="true">
+			<deployment table="BigItem" typecode="23500"/>
+			<attributes>
+				<attribute qualifier="code" type="java.lang.Integer">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+			
+				<attribute qualifier="customItem" type="Book">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute qualifier="customEnum" type="GlassState">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute qualifier="customCollection" type="NameCollection">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+				
+				<attribute qualifier="customMap" type="LetterCountMap">
+					<modifiers read="true" write="true"/>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+	</itemtypes>
+</items>

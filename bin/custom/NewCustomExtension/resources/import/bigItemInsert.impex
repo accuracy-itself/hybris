@@ -1,0 +1,2 @@
+INSERT BigItem; code[unique=true]; customItem(code)[unique=true]; customEnum(code); customCollection; customMap(key(code),value(code))[map-delimiter=|]
+; "12356"; "12345"; HALF_FULL; "value1, value2, value3"; word->4 | money->5;

@@ -1,0 +1,7 @@
+<hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
+  <extensions>
+    <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
+    <extension dir="/home/alena.stankevich/CXCOMCL221100P_1-70007431/hybris/bin/custom/NewCustomExtension"/>
+    <extension dir="/home/alena.stankevich/CXCOMCL221100P_1-70007431/hybris/bin/custom/SecondNewExtension"/>
+  </extensions>
+</hybrisconfig>
