@@ -41,7 +41,12 @@
     <bean id="bandAlbumSalesEventListener" class="concerttours.events.BandAlbumSalesEventListener" parent="abstractEventListener" >
         <property name="modelService" ref="modelService" />
     </bean>
-    
+
+    <bean id="setTokenJob" class="concerttours.jobs.SetTokenJob" parent="abstractJobPerformable" >
+        <property name="modelService" ref="modelService" />
+        <property name="tokenHolderDAO" ref="tokenHolderDAO"/>
+    </bean>
+
     <bean id="concerttoursSystemSetup" class="concerttours.setup.ConcerttoursSystemSetup">
         <!-- constructor arg injection example -->
         <constructor-arg ref="concerttoursService"/>

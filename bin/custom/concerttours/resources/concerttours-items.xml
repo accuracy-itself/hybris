@@ -109,5 +109,15 @@
 				</attribute>
 			</attributes>
 		</itemtype>
+
+		<itemtype generate="true" code="TokenHolder" autocreate="true">
+			<deployment table="TokenHolders" typecode="30280"/>
+			<attributes>
+				<attribute qualifier="token" type="java.lang.String">
+					<description>someone's token</description>
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
 	</itemtypes>
 </items>
