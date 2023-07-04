@@ -40,5 +40,11 @@
 		<property name = "concerts" type="java.util.List&lt;concerttours.data.ConcertSummaryData&gt;"/>
 		<property name = "producer" type="String"/>
 	</bean>
+	<bean class = "concerttours.data.NewsData" >
+		<description >Data object for news</description>
+		<property name = "headline" type = "String" />
+		<property name = "date" type = "java.util.Date" />
+		<property name = "content" type = "String" />
+	</bean>
 
 </beans>

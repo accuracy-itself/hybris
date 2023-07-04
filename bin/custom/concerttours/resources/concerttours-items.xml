@@ -108,6 +108,11 @@
 		<itemtype generate="true" code="News" autocreate="true">
 			<deployment table="News" typecode="30270" />
 			<attributes>
+				<attribute qualifier="catalogVersion" type="CatalogVersion">
+					<description>catalog version of news</description>
+					<modifiers read="true" write="false" search="true" initial="true" optional="false"/>
+					<persistence type="property"/>
+				</attribute>
 				<attribute qualifier="date" type="java.util.Date">
 					<description>date of news item</description>
 					<persistence type="property" />

@@ -29,6 +29,11 @@
         <property name = "productService" ref = "productService" />
     </bean>
 
+    <alias name = "defaultNewsFacade" alias = "newsFacade" />
+    <bean id = "defaultNewsFacade" class ="concerttours.facades.impl.DefaultNewsFacade" >
+        <property name = "newsDAO" ref = "newsDAO" />
+    </bean>
+
     <bean id="concertDaysUntilAttributeHandler" class="concerttours.attributehandlers.ConcertDaysUntilAttributeHandler"/>
 
     <bean id="concerttourEventListener" class="concerttours.events.NewBandEventListener" parent="abstractEventListener">
