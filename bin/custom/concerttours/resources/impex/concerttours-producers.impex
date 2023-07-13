@@ -1,0 +1,5 @@
+# ImpEx for Importing Bands into Little Concert Tours Store
+
+INSERT_UPDATE MusicProducer;code[unique=true];firstName;lastName
+;10101010;John;Lennon
+;20202020;Lena;Stankevich

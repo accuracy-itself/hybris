@@ -53,6 +53,7 @@ public class DefaultTourFacade implements TourFacade
         tourData.setTourName(product.getName());
         tourData.setDescription(product.getDescription());
         tourData.setConcerts(concerts);
+        tourData.setProducer(product.getProducer().getLastName());
         return tourData;
     }
     @Required
